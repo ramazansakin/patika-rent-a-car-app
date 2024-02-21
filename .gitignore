@@ -32,9 +32,3 @@ build/
 ### VS Code ###
 .vscode/
 
-
-### Custom
-src/main/java/com/patika/rsakin/patikarentacarservice/controller
-src/main/java/com/patika/rsakin/patikarentacarservice/service
-src/main/java/com/patika/rsakin/patikarentacarservice/model/dto
-src/main/java/com/patika/rsakin/patikarentacarservice/model/mapper
