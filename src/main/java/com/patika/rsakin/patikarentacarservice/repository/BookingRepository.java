@@ -2,6 +2,22 @@ package com.patika.rsakin.patikarentacarservice.repository;
 
 import com.patika.rsakin.patikarentacarservice.model.entity.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 public interface BookingRepository extends JpaRepository<Booking, Long> {
+
+    // price > 300
+    List<Booking> getAllByPriceGreaterThan(int price);
+
+    // booking.price > 300 && booking.name LIKE "%abc%"
+    List<Booking> getAllByPriceGreaterThanAndNameContainsIgnoreCase(int price, String name);
+
+    // booking.price > 300 && booking.name LIKE "%abc%"
+    List<Booking> getAllByCar_KmAndCar_Model_Name(int km, String carModelName);
+
+    @Query(name = "SELECT * FROM bookings where id = :id", nativeQuery = true)
+    Booking getMyBooking(Long id);
+
 }
