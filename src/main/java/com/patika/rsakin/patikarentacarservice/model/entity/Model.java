@@ -3,8 +3,10 @@ package com.patika.rsakin.patikarentacarservice.model.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "MODELS")
 public class Model extends BaseEntity {
@@ -27,6 +29,11 @@ public class Model extends BaseEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "brand_id", referencedColumnName = "id")
     private Brand brand;
+
+    public Model(String modelName) {
+        super();
+        name = modelName;
+    }
 
     public enum FuelType {
         GASOLINE,
